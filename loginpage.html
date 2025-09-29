@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payoo-login</title>
+
+    <!-- daisyui cdn -->
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@5" rel="stylesheet" type="text/css" />
+    <!-- tailwindcss cdn -->
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+</head>
+
+<body class="bg-[#f4f5f7] h-[100vh] flex justify-center items-center flex-col">
+    <div id="" class="h-32 w-80 bg-[url(./assets/bg.png)] bg-no-repeat bg-cover flex justify-center items-center">
+        <img src="./assets/Group.png" alt="" class="">
+    </div>
+    <form class="bg-white p-8 rounded-3xl relative w-[402px]" action="">
+        <div>
+            <label class="font-semibold" for="">Mobile Number</label> <br>
+            <input id="mobile-number" type="text" placeholder="Enter your number" class="input bg-[#f4f5f7] rounded-3xl mt-3 w-full" />
+        </div>
+        <div class="py-4">
+            <label class="font-semibold" for="">4 Digit Pin</label> <br> 
+            <input id="pin-number" type="text" placeholder="Enter 4 Digit Pin"
+                class="input bg-[#f4f5f7] rounded-4xl mt-3 w-full" />
+        </div>
+        <button id="btn-login" class="w-full btn bg-[#1A77F2] text-white border-[#005fd8]  rounded-4xl"
+            type="button">Login</button>
+    </form>
+
+    <script>
+        //26-3 6:50
+        document.getElementById('btn-login').addEventListener('click', function (event) {
+            event.preventDefault(); // stop form reload
+
+            // get values from input fields
+            const mobileNumValue = document.getElementById('mobile-number').value;
+            const pinNumValue = document.getElementById('pin-number').value;
+
+            // convert to numbers if needed
+            const mobileNumConverted = parseInt(mobileNumValue, 10);
+            const pinNumConverted = parseInt(pinNumValue, 10);
+
+            console.log(mobileNumConverted, pinNumConverted);
+
+            // set your valid test values as strings (safer for leading zeros!)
+            const correctMobile = "01866445659";
+            const correctPin = "5659";
+
+            if (mobileNumValue === correctMobile && pinNumValue === correctPin) {
+                window.location.href = "home.html";
+            } else {
+                console.log('Invalid values');
+            }
+        }); 
+    </script>
+</body>
+
+</html>
